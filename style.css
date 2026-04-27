@@ -1,0 +1,169 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(to right, #f5f5f5, #e0e0e0);
+    color: #333;
+}
+
+/* HEADER */
+header {
+    background: linear-gradient(135deg, #8b0000, #ff4d4d);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+header h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+/* ARTIST BLOKI */
+.artist {
+    background: white;
+    margin: 30px auto;
+    padding: 25px;
+    width: 85%;
+    max-width: 800px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.artist:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+.artist h2 {
+    margin-bottom: 15px;
+    color: #8b0000;
+}
+
+/* BILDES */
+.artist img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+/* TEKSTS */
+.artist p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* POGA */
+.artist a {
+    display: inline-block;
+    padding: 12px 18px;
+    background: #8b0000;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.artist a:hover {
+    background: #ff4d4d;
+    transform: scale(1.05);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+    background: #222;
+    color: white;
+}
+
+/* RESPONSIVE (telefonam) */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 28px;
+    }
+
+    .artist {
+        width: 95%;
+        padding: 20px;
+    }
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+    position: relative;
+    margin: 10% auto;
+    width: 80%;
+    max-width: 700px;
+}
+
+.modal iframe {
+    width: 100%;
+    height: 400px;
+    border-radius: 10px;
+}
+
+.close {
+    position: absolute;
+    top: -30px;
+    right: 0;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+    position: relative;
+    margin: 10% auto;
+    width: 80%;
+    max-width: 700px;
+}
+
+.modal iframe {
+    width: 100%;
+    height: 400px;
+}
+
+.close {
+    position: absolute;
+    top: -30px;
+    right: 0;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
