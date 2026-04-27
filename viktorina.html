@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viktoriņa – Latvijas Pop Mūziķi</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <h1>Viktoriņa</h1>
+    <p>Pārbaudi savas zināšanas par Latvijas pop mūziku!</p>
+    <nav>
+        <a href="index.html">Sākums</a>
+        <a href="galerija.html">Galerija</a>
+        <a href="aptauja.html">Aptauja</a>
+        <a href="viktorina.html">Viktoriņa</a>
+    </nav>
+</header>
+
+<main>
+    <div id="viktorina-sākums" class="viktorina-bloks">
+        <h2>Gatavs sākt?</h2>
+        <p>10 jautājumi par Latvijas populārākajiem mūziķiem. Par katru pareizu atbildi saņem 1 punktu!</p>
+        <button id="sakuma-poga" class="v-poga">Sākt viktoriņu ▶</button>
+    </div>
+
+    <div id="viktorina-jautajums" class="viktorina-bloks" style="display:none">
+        <div id="progress-bar-wrapper">
+            <div id="progress-bar"></div>
+        </div>
+        <p id="jautajuma-numurs">1 / 10</p>
+        <h2 id="jautajuma-teksts"></h2>
+        <div id="atbildes-saraksts"></div>
+        <p id="atbildes-atgriezeniskums"></p>
+        <button id="talak-poga" class="v-poga" style="display:none">Nākamais ▶</button>
+    </div>
+
+    <div id="viktorina-beigas" class="viktorina-bloks" style="display:none">
+        <h2>Viktoriņa pabeigta!</h2>
+        <p id="rezultata-teksts"></p>
+        <p id="rezultata-komentars"></p>
+        <button id="veltreiz-poga" class="v-poga">Mēģināt vēlreiz ↺</button>
+    </div>
+</main>
+
+<footer>
+    <p>© 2026 Latvijas mūzika</p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
