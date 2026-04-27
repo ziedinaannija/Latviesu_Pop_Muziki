@@ -3,7 +3,7 @@ Tēma: Latvijas pop mūziķi
 
 Vietnes mērķis: Šī tīmekļa vietne ir veidota, lai iepazīstinātu apmeklētājus ar Latvijas populārākajiem pop mūzikas izpildītājiem – gan leģendārām grupām, gan mūsdienu zvaigznēm.
 
-####Vietnē apskatāmi mākslinieki:
+#### Vietnē apskatāmi mākslinieki:
 
 Prāta Vētra
 
@@ -19,7 +19,7 @@ Triana Park
 
 Citi Zēni
 
-####Ko var darīt vietnē:
+#### Ko var darīt vietnē:
 
 Lasīt informāciju par katru mākslinieku
 
@@ -29,7 +29,7 @@ Klausīties dziesmu paraugus (saites uz YouTube)
 
 Aizpildīt aptauju par savām mūzikas gaumēm
 
-####Izmantotās tehnoloģijas:
+#### Izmantotās tehnoloģijas:
 
 HTML – lapu struktūra
 
