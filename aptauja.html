@@ -1,439 +1,49 @@
 <!DOCTYPE html>
 <html lang="lv">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aptauja – Latvijas pop mūziķi</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
-            background: linear-gradient(135deg, #f5f0e8 0%, #e8dfd3 100%);
-            color: #2c2b28;
-            line-height: 1.5;
-            min-height: 100vh;
-        }
-
-        /* Header un navigācija */
-        header {
-            background: #2c5a3e;
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            color: #fef7e0;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1.1rem;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            transition: all 0.2s ease;
-        }
-
-        nav a:hover {
-            background: rgba(255,255,255,0.2);
-            transform: translateY(-2px);
-        }
-
-        /* Galvenais saturs */
-        main {
-            max-width: 750px;
-            margin: 2.5rem auto;
-            padding: 0 1.5rem;
-        }
-
-        h1 {
-            font-size: 2.2rem;
-            color: #2c5a3e;
-            margin-bottom: 1.8rem;
-            text-align: center;
-            font-weight: 600;
-            letter-spacing: -0.5px;
-            position: relative;
-        }
-
-        h1:after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background: #e67e22;
-            margin: 0.5rem auto 0;
-            border-radius: 2px;
-        }
-
-        /* Formas stils */
-        #forma {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem 2rem 2.2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        label {
-            display: block;
-            font-weight: 600;
-            color: #2c5a3e;
-            margin-top: 1.2rem;
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
-        }
-
-        label:first-of-type {
-            margin-top: 0;
-        }
-
-        input[type="text"],
-        select,
-        textarea {
-            width: 100%;
-            padding: 0.85rem 1rem;
-            border: 2px solid #e2d5c0;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-family: inherit;
-            transition: all 0.2s;
-            background: #fefcf8;
-        }
-
-        input[type="text"]:focus,
-        select:focus,
-        textarea:focus {
-            outline: none;
-            border-color: #e67e22;
-            box-shadow: 0 0 0 3px rgba(230,126,34,0.1);
-            background: white;
-        }
-
-        /* Fieldset (radio grupas) */
-        fieldset {
-            border: 2px solid #e2d5c0;
-            border-radius: 16px;
-            padding: 1.2rem 1.5rem;
-            margin-top: 1.2rem;
-            background: #fefcf8;
-        }
-
-        legend {
-            padding: 0 0.8rem;
-            font-weight: 700;
-            color: #2c5a3e;
-            font-size: 1rem;
-            background: white;
-            border-radius: 20px;
-            margin-left: -0.3rem;
-        }
-
-        fieldset div {
-            margin-bottom: 0.7rem;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-        }
-
-        fieldset div:last-child {
-            margin-bottom: 0;
-        }
-
-        input[type="radio"] {
-            width: 1.2rem;
-            height: 1.2rem;
-            accent-color: #e67e22;
-            cursor: pointer;
-        }
-
-        fieldset label {
-            margin: 0;
-            font-weight: normal;
-            color: #3a3a36;
-            cursor: pointer;
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        button[type="submit"] {
-            background: #e67e22;
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
-            font-weight: 700;
-            border-radius: 40px;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 1.8rem;
-            transition: all 0.2s;
-            letter-spacing: 0.5px;
-        }
-
-        button[type="submit"]:hover {
-            background: #bf6016;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(191,96,22,0.3);
-        }
-
-        /* Rezultāta paziņojums */
-        #rezultats {
-            margin-top: 1.5rem;
-            padding: 1rem;
-            border-radius: 12px;
-            text-align: center;
-            font-weight: 500;
-            transition: all 0.2s;
-        }
-
-        .success-message {
-            background: #d4edda;
-            color: #155724;
-            border-left: 4px solid #28a745;
-        }
-
-        .error-message {
-            background: #f8d7da;
-            color: #721c24;
-            border-left: 4px solid #dc3545;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
-            background: #2c3e2b;
-            color: #ecd9b4;
-            font-size: 0.85rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 600px) {
-            main {
-                padding: 0 1rem;
-            }
-            #forma {
-                padding: 1.5rem;
-            }
-            h1 {
-                font-size: 1.8rem;
-            }
-            nav {
-                gap: 1rem;
-            }
-            nav a {
-                font-size: 0.95rem;
-                padding: 0.4rem 0.8rem;
-            }
-        }
-    </style>
-</head>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Aptauja</title><link rel="stylesheet" href="style.css"></head>
 <body>
-<header>
-    <nav>
-        <a href="index.html">🏠 Sākums</a>
-        <a href="galerija.html">🖼️ Galerija</a>
-        <a href="aptauja.html">📊 Aptauja</a>
-        <a href="viktorina.html">❓ Viktorīna</a>
-    </nav>
-</header>
+<header><h1>Latvijas Pop Mūziķi</h1><p>Iepazīsti populārākos Latvijas māksliniekus</p></header>
+<nav><a href="index.html">Sākums</a><a href="galerija.html">Galerija</a><a href="aptauja.html">Aptauja</a><a href="viktorina.html">Viktorīna</a></nav>
 
-<main>
-    <h1>Aptauja</h1>
-    <form id="forma">
-        <label for="vards">✨ Tavs vārds</label>
-        <input type="text" id="vards" placeholder="Ieraksti savu vārdu..." required>
-
-        <label for="izvele">🎵 Kurš mākslinieks tev patīk visvairāk?</label>
-        <select id="izvele" required>
-            <option value="">-- Izvēlies mākslinieku --</option>
-            <option value="prata-vetra">Prāta Vētra</option>
-            <option value="dons">Dons</option>
-            <option value="musiqq">Musiqq</option>
-            <option value="triana-park">Triana Park</option>
-            <option value="aminata">Aminata</option>
-            <option value="busulis">Intars Busulis</option>
-            <option value="citi-zeni">Citi Zēni</option>
-        </select>
-
-        <!-- Jautājums ar radio pogām #1 -->
-        <fieldset>
-            <legend>🎧 Cik bieži klausies Latvijas mūziku?</legend>
-            <div>
-                <input type="radio" id="katru-dienu" name="biezums" value="katru-dienu" required>
-                <label for="katru-dienu">Katru dienu — tā ir mana ikdiena</label>
-            </div>
-            <div>
-                <input type="radio" id="dazreiz" name="biezums" value="dazreiz">
-                <label for="dazreiz">Dažreiz — kad ienāk prātā</label>
-            </div>
-            <div>
-                <input type="radio" id="reti" name="biezums" value="reti">
-                <label for="reti">Reti — galvenokārt klausos citu valstu mūziku</label>
-            </div>
-        </fieldset>
-
-        <!-- Jautājums ar radio pogām #2 -->
-        <fieldset>
-            <legend>📱 Kā tu parasti klausies mūziku?</legend>
-            <div>
-                <input type="radio" id="spotify" name="platforma" value="spotify" required>
-                <label for="spotify">Spotify / Apple Music</label>
-            </div>
-            <div>
-                <input type="radio" id="youtube" name="platforma" value="youtube">
-                <label for="youtube">YouTube / YouTube Music</label>
-            </div>
-            <div>
-                <input type="radio" id="radio" name="platforma" value="radio">
-                <label for="radio">Radio (tradicionālā vai internetā)</label>
-            </div>
-            <div>
-                <input type="radio" id="cits" name="platforma" value="cits">
-                <label for="cits">Cits (faili, atskaņotāji u.c.)</label>
-            </div>
-        </fieldset>
-
-        <!-- Jautājums ar radio pogām #3 -->
-        <fieldset>
-            <legend>🎤 Vai esi bijis kāda Latvijas mākslinieka koncertā?</legend>
-            <div>
-                <input type="radio" id="ja" name="koncerts" value="ja" required>
-                <label for="ja">Jā, un tā bija lieliska pieredze!</label>
-            </div>
-            <div>
-                <input type="radio" id="ne" name="koncerts" value="ne">
-                <label for="ne">Nē, bet gribētu</label>
-            </div>
-            <div>
-                <input type="radio" id="plans" name="koncerts" value="plans">
-                <label for="plans">Vēl neesmu, bet jau plānoju</label>
-            </div>
-        </fieldset>
-
-        <label for="komentars">💬 Komentārs / Ieteikumi</label>
-        <textarea id="komentars" placeholder="Dalies ar savām domām par Latvijas mūziku..."></textarea>
-
-        <button type="submit">✉️ Iesniegt atbildes</button>
-    </form>
-    <p id="rezultats"></p>
-</main>
-
-<footer>
-    <p>© 2026 Latvijas mūzika — lepni ar mūsu māksliniekiem</p>
-</footer>
+<form id="forma">
+    <label>Tavs vārds</label>
+    <input type="text" id="vards" placeholder="Tavs vārds" required>
+    <label>Mīļākais mākslinieks?</label>
+    <select id="izvele" required><option value="">-- Izvēlies --</option><option>Prāta Vētra</option><option>Dons</option><option>Musiqq</option><option>Triana Park</option><option>Aminata</option><option>Intars Busulis</option><option>Citi Zēni</option></select>
+    <fieldset><legend>Cik bieži klausies Latvijas mūziku?</legend>
+        <div><input type="radio" name="biezums" value="katru-dienu" required><label>Katru dienu</label></div>
+        <div><input type="radio" name="biezums" value="dazreiz"><label>Dažreiz</label></div>
+        <div><input type="radio" name="biezums" value="reti"><label>Reti</label></div>
+    </fieldset>
+    <fieldset><legend>Kā klausies mūziku?</legend>
+        <div><input type="radio" name="platforma" value="spotify" required><label>Spotify</label></div>
+        <div><input type="radio" name="platforma" value="youtube"><label>YouTube</label></div>
+        <div><input type="radio" name="platforma" value="radio"><label>Radio</label></div>
+    </fieldset>
+    <fieldset><legend>Esi bijis koncertā?</legend>
+        <div><input type="radio" name="koncerts" value="ja" required><label>Jā</label></div>
+        <div><input type="radio" name="koncerts" value="ne"><label>Nē</label></div>
+        <div><input type="radio" name="koncerts" value="plans"><label>Plānoju</label></div>
+    </fieldset>
+    <label>Komentārs</label><textarea id="komentars" placeholder="Tavs komentārs..."></textarea>
+    <button type="submit">Iesniegt</button>
+</form>
+<p id="rezultats"></p>
+<footer><p>© 2026 Latvijas mūzika</p></footer>
 
 <script>
-    // Aptaujas apstrāde
-    const forma = document.getElementById('forma');
-    const rezultatsParagr = document.getElementById('rezultats');
-
-    forma.addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        // Validācija
-        const vards = document.getElementById('vards').value.trim();
-        const izvele = document.getElementById('izvele').value;
-        
-        if (!vards) {
-            paraditKļūdu('Lūdzu, ievadi savu vārdu!');
-            return;
-        }
-        
-        if (!izvele) {
-            paraditKļūdu('Lūdzu, izvēlies savu mīļāko mākslinieku!');
-            return;
-        }
-
-        // Pārbaudīt radio grupas
-        const biezkumsRad = document.querySelector('input[name="biezums"]:checked');
-        const platformaRad = document.querySelector('input[name="platforma"]:checked');
-        const koncertsRad = document.querySelector('input[name="koncerts"]:checked');
-        
-        if (!biezkumsRad) {
-            paraditKļūdu('Lūdzu, atbildi uz jautājumu "Cik bieži klausies Latvijas mūziku?"');
-            return;
-        }
-        
-        if (!platformaRad) {
-            paraditKļūdu('Lūdzu, atbildi uz jautājumu "Kā tu parasti klausies mūziku?"');
-            return;
-        }
-        
-        if (!koncertsRad) {
-            paraditKļūdu('Lūdzu, atbildi uz jautājumu par koncertu apmeklēšanu!');
-            return;
-        }
-
-        // Iegūt izvēlēto mākslinieka nosaukumu
-        const izveleSelect = document.getElementById('izvele');
-        const izveletaisMaksl = izveleSelect.options[izveleSelect.selectedIndex].text;
-        
-        const komentars = document.getElementById('komentars').value.trim();
-        
-        // Rezultāta ziņojums
-        const rezultatsZina = `🎉 Paldies, ${vards}! Tavas atbildes ir saņemtas!<br>
-                               📌 Mīļākais mākslinieks: ${izveletaisMaksl}<br>
-                               ${komentars ? `💬 Komentārs: "${komentars}"` : ''}`;
-        
-        rezultatsParagr.innerHTML = rezultatsZina;
-        rezultatsParagr.className = 'success-message';
-        rezultatsParagr.style.display = 'block';
-        
-        // Notīrīt formu (pēc izvēles)
-        forma.reset();
-        
-        // Pēc 5 sekundēm paslēpt ziņu
-        setTimeout(() => {
-            rezultatsParagr.style.display = 'none';
-        }, 5000);
-        
-        // Opcionāli - ierakstīt konsolē (simulē datu saglabāšanu)
-        console.log('Aptaujas dati:', {
-            vards: vards,
-            izvele: izveletaisMaksl,
-            biezkums: biezkumsRad.value,
-            platforma: platformaRad.value,
-            koncerts: koncertsRad.value,
-            komentars: komentars
-        });
-    });
-    
-    function paraditKļūdu(ziņa) {
-        rezultatsParagr.innerHTML = `⚠️ ${ziņa}`;
-        rezultatsParagr.className = 'error-message';
-        rezultatsParagr.style.display = 'block';
-        
-        setTimeout(() => {
-            rezultatsParagr.style.display = 'none';
-        }, 4000);
-    }
-    
-    // Automātiski paslēpt rezultātu, ja lietotājs sāk aizpildīt formu no jauna
-    const visiLauki = forma.querySelectorAll('input, select, textarea');
-    visiLauki.forEach(lauks => {
-        lauks.addEventListener('focus', () => {
-            rezultatsParagr.style.display = 'none';
-        });
-    });
+document.getElementById('forma').addEventListener('submit',function(e){
+    e.preventDefault();
+    let vards=document.getElementById('vards').value.trim();
+    let izvele=document.getElementById('izvele').value;
+    if(!vards||!izvele) return alert('Lūdzu aizpildi vārdu un izvēlies mākslinieku!');
+    if(!document.querySelector('input[name="biezums"]:checked')) return alert('Izvēlies, cik bieži klausies mūziku!');
+    if(!document.querySelector('input[name="platforma"]:checked')) return alert('Izvēlies platformu!');
+    if(!document.querySelector('input[name="koncerts"]:checked')) return alert('Izvēlies par koncertu!');
+    document.getElementById('rezultats').innerHTML='✅ Paldies, '+vards+'! Tava atbilde pieņemta!';
+    document.getElementById('forma').reset();
+    setTimeout(()=>document.getElementById('rezultats').innerHTML='',3000);
+});
 </script>
 </body>
 </html>
