@@ -2,92 +2,209 @@
 <html lang="lv">
 <head>
     <meta charset="UTF-8">
-    <title>Latvijas pop mūziķi</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Latviešu Popmūzika</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <header class="site-header">
+        <div class="logo">Latviešu Popmūzika</div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#sakums">Sākums</a></li>
+                <li><a href="#muziki">Mūziķi</a></li>
+                <li><a href="#galerija">Galerija</a></li>
+                <li><a href="#aptauja">Aptauja</a></li>
+                <li><a href="#kontakti">Kontakti</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<header>
-    <section>
-    <h2>Par projektu</h2>
-    <p>Šī mājaslapa ir par Latvijas pop mūziķiem, viņu mūziku un ietekmi.</p>
+    <main>
+        <!-- SĀKUMS -->
+        <section id="sakums" class="hero">
+            <div class="hero-content">
+                <h1>Latviešu popmūzikas pasaule</h1>
+                <p>
+                    Šī tīmekļa vietne ir veltīta latviešu popmūzikai – mūziķiem, dziesmām un koncertiem,
+                    kas veido mūsu ikdienas skaņu celiņu.
+                </p>
+                <a href="#muziki" class="btn-primary">Iepazīt mūziķus</a>
+            </div>
+        </section>
 
-</section>
-    <h1>Latvijas Pop Mūziķi</h1>
-    <p>Iepazīsti populārākos Latvijas māksliniekus un viņu mūziku</p>
-</section>
-    <nav>
-    <a href="#sakums">Sākums</a>
-    <a href="galerija.html">Galerija</a>
-    <a href="aptauja.html">Aptauja</a>
-</nav>
-</section>
-</header>
+        <!-- MŪZIĶI -->
+        <section id="muziki" class="section">
+            <h2>Populāri latviešu popmūziķi</h2>
+            <p class="section-intro">
+                Šeit ir daži no zināmākajiem latviešu popmūzikas izpildītājiem. Teksts ir piemērs, ko vari
+                pielāgot, papildināt vai pilnībā pārrakstīt ar savu saturu.
+            </p>
 
-<section class="artist">
-    <h2>Prāta Vētra</h2>
-    <img src="foto/prata.jpg">
-    <p>Prāta Vētra ir viena no visu laiku veiksmīgākajām Latvijas grupām, kas dibināta 1989. gadā. 
-    Grupa kļuva starptautiski pazīstama pēc uzstāšanās Eirovīzijā 2000. gadā ar dziesmu "My Star". 
-    Viņu mūzika apvieno pop, rock un alternatīvo skanējumu, un viņi regulāri koncertē arī ārpus Latvijas.</p>
-<p><a href="https://www.youtube.com/watch?v=hHHdxt5UuNY&list=RDEM6ycSpHLim21CtD9KsnoxPQ&start_radio=1">Tevis dēļ </a></p>
-</section>
+            <div class="cards">
+                <article class="card">
+                    <h3>Prāta Vētra</h3>
+                    <p>
+                        Viena no populārākajām latviešu grupām, kas pazīstama arī ārpus Latvijas.
+                        Viņu mūzika apvieno popu, rokmūziku un melodiskas balādes.
+                    </p>
+                </article>
 
-<section class="artist">
-    <h2>Dons</h2>
-    <img src="foto/dons.jpg">
-    <p>Dons (Artūrs Šingirejs) ir viens no populārākajiem latviešu solo izpildītājiem. 
-    Viņa dziesmas bieži kļūst par radio hitiem, un viņš ir pazīstams ar spēcīgu balsi un emocionāliem priekšnesumiem. 
-    Dons ir vairākkārt ieguvis Latvijas mūzikas balvas.</p>
-    <p><a href="https://www.youtube.com/watch?v=D_lxk4Y0jTk">Vai mums ir pa ceļam</a></p>
-</section>
+                <article class="card">
+                    <h3>Aminata</h3>
+                    <p>
+                        Spēcīga balss, mūsdienīgs skanējums un spilgts skatuves tēls. Aminata ir
+                        viena no spilgtākajām mūsdienu popmūzikas izpildītājām Latvijā.
+                    </p>
+                </article>
 
-<section class="artist">
-    <h2>Musiqq</h2>
-    <img src="foto/musiq.jpg">
-    <p>Musiqq ir popmūzikas duets, kas pazīstams ar modernu skanējumu un melodiskām dziesmām. 
-    Duets ieguva popularitāti ar dziesmu "Abrakadabra" un pārstāvēja Latviju Eirovīzijā. 
-    Viņu mūzika bieži dominē Latvijas topu virsotnēs.</p>
-    <p><a href="https://www.youtube.com/watch?v=s8tIGXAxvW4">Sekundes</a></p>
-</section>
+                <article class="card">
+                    <h3>Musiqq</h3>
+                    <p>
+                        Duets, kas apvieno popu, R&amp;B un elektroniskās mūzikas elementus. Viņu dziesmas
+                        bieži skan radio un koncertos visā Latvijā.
+                    </p>
+                </article>
+            </div>
+        </section>
 
-<section class="artist">
-    <h2>Aminata</h2>
-    <img src="foto/aminata.jpg">
-    <p>Aminata Savadogo ir dziedātāja un dziesmu autore ar unikālu balsi un stilu. 
-    Viņa pārstāvēja Latviju Eirovīzijā 2015. gadā ar dziesmu "Love Injected" un ieguva augstu vietu. 
-    Aminata raksta dziesmas arī citiem māksliniekiem un ir viena no ietekmīgākajām pop mūziķēm Latvijā.</p>
-    <p><a href="https://www.youtube.com/watch?v=txrPb3kIbwU">Maiga vara</a></p>
-</section>
+        <!-- GALERIJA -->
+        <section id="galerija" class="section section-alt">
+            <h2>Koncertu un mūziķu galerija</h2>
+            <p class="section-intro">
+                Galerijā vari ievietot savus foto vai brīvi lietojamus attēlus, kas saistīti ar mūziku
+                un koncertiem. Zemāk ir vietturi, kurus vari nomainīt.
+            </p>
 
-<section class="artist">
-    <h2>Intars Busulis</h2>
-    <img src="foto/busulis.jpg">
-    <p>Intars Busulis ir daudzpusīgs dziedātājs un trombonists, kurš darbojas gan pop, gan džeza žanrā. 
-    Viņš ir uzvarējis vairākos mūzikas konkursos un pārstāvējis Latviju starptautiski. 
-    Busulis ir pazīstams ar enerģiskiem koncertiem un spēcīgu skatuves harizmu.</p>
-    <p><a href="https://www.youtube.com/watch?v=L67GRSdQ5Eg">Purva bridējs</a></p>
-</section>
+            <div class="gallery">
+                <figure class="gallery-item">
+                    <img src="images/koncerts1.jpg" alt="Koncerts 1">
+                    <figcaption>Koncerts Rīgā</figcaption>
+                </figure>
+                <figure class="gallery-item">
+                    <img src="images/koncerts2.jpg" alt="Koncerts 2">
+                    <figcaption>Skatuves gaismas</figcaption>
+                </figure>
+                <figure class="gallery-item">
+                    <img src="images/muzikis1.jpg" alt="Mūziķis">
+                    <figcaption>Mūziķis uz skatuves</figcaption>
+                </figure>
+                <figure class="gallery-item">
+                    <img src="images/publika.jpg" alt="Publika">
+                    <figcaption>Publika koncertā</figcaption>
+                </figure>
+            </div>
+        </section>
 
-<section class="artist">
-    <h2>Triana Park</h2>
-    <img src="foto/park.jpg">
-    <p>Triana Park ir grupa ar spilgtu vizuālo tēlu un elektroniskās popmūzikas skanējumu. 
-    Viņi pārstāvēja Latviju Eirovīzijā 2017. gadā. Grupas dziedātāja Agnese Rakovska ir pazīstama ar savu unikālo stilu un enerģiju.</p>
-<p><a href="https://www.youtube.com/watch?v=--_uRJ1dg6k">Es gaidu ziemu</a></p>
-</section>
+        <!-- APTAUJA / FORMA -->
+        <section id="aptauja" class="section">
+            <h2>Aptauja: Tava mīļākā latviešu popdziesma</h2>
+            <p class="section-intro">
+                Aizpildi aptauju un pastāsti, kādu latviešu popmūziku tu klausies visbiežāk.
+                Šo formu var izmantot datu apstrādei ar JavaScript (piemēram, validācijai vai rezultātu attēlošanai).
+            </p>
 
-<section class="artist">
-    <h2>Citi Zēni</h2>
-    <img src="foto/zeni.jpg">
-    <p>Citi Zēni ir mūsdienīga pop/hip-hop grupa, kas kļuva populāra ar humoristiskiem un enerģiskiem priekšnesumiem. 
-    Viņi pārstāvēja Latviju Eirovīzijā 2022. gadā ar dziesmu "Eat Your Salad", kas guva plašu starptautisku uzmanību.
-    <p><a href="https://www.youtube.com/watch?v=3w0Yr8lLOn4">Limuzīns uz krīta</a></p>
-</section>
+            <form id="survey-form" class="form">
+                <div class="form-group">
+                    <label for="name">Vārds un uzvārds</label>
+                    <input type="text" id="name" name="name" placeholder="Ieraksti savu vārdu">
+                </div>
 
-<footer>
-    <p>© 2026 Latvijas mūzika</p>
-</footer>
-<script src="js/script.js"></script>
+                <div class="form-group">
+                    <label for="email">E-pasts</label>
+                    <input type="email" id="email" name="email" placeholder="piemers@epasts.lv">
+                </div>
+
+                <div class="form-group">
+                    <label for="favorite-artist">Mīļākais latviešu popmūziķis</label>
+                    <select id="favorite-artist" name="favorite-artist">
+                        <option value="">-- Izvēlies --</option>
+                        <option value="prata-vetra">Prāta Vētra</option>
+                        <option value="aminata">Aminata</option>
+                        <option value="musiqq">Musiqq</option>
+                        <option value="cits">Cits</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <span>Kur visbiežāk klausies mūziku?</span>
+                    <label class="inline">
+                        <input type="radio" name="platform" value="spotify">
+                        Spotify
+                    </label>
+                    <label class="inline">
+                        <input type="radio" name="platform" value="youtube">
+                        YouTube
+                    </label>
+                    <label class="inline">
+                        <input type="radio" name="platform" value="radio">
+                        Radio
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <span>Kādu mūziku tu visbiežāk izvēlies?</span>
+                    <label class="inline">
+                        <input type="checkbox" name="genre" value="pop">
+                        Pops
+                    </label>
+                    <label class="inline">
+                        <input type="checkbox" name="genre" value="rock">
+                        Roks
+                    </label>
+                    <label class="inline">
+                        <input type="checkbox" name="genre" value="electronic">
+                        Elektroniskā
+                    </label>
+                    <label class="inline">
+                        <input type="checkbox" name="genre" value="other">
+                        Citi žanri
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label for="comment">Tava mīļākā latviešu popdziesma un kāpēc?</label>
+                    <textarea id="comment" name="comment" rows="4"
+                              placeholder="Apraksti savu mīļāko dziesmu..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary">Iesniegt aptauju</button>
+
+                <p id="form-message" class="form-message"></p>
+            </form>
+        </section>
+
+        <!-- KONTAKTI -->
+        <section id="kontakti" class="section section-alt">
+            <h2>Kontakti un atsauces</h2>
+            <p class="section-intro">
+                Šī ir mācību projekta lapa. Šeit vari ierakstīt savu vārdu, klasi, skolu un atsauces
+                uz izmantotajiem materiāliem (attēliem, tekstiem).
+            </p>
+
+            <div class="contacts">
+                <div>
+                    <h3>Autors</h3>
+                    <p>Vārds Uzvārds</p>
+                    <p>Klase, skola</p>
+                    <p>E-pasts: <a href="mailto:piemers@skola.lv">piemers@skola.lv</a></p>
+                </div>
+                <div>
+                    <h3>Atsauces</h3>
+                    <ul>
+                        <li>Attēli: <em>norādi avotus vai “autora foto”</em></li>
+                        <li>Informācija par mūziķiem: <em>norādi izmantotos resursus</em></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Latviešu Popmūzika — mācību projekts.</p>
+    </footer>
+
+    <!-- JavaScript datu apstrādei (piemērs) -->
+    <script src="js/script.js"></script>
 </body>
 </html>
