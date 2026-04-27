@@ -2,26 +2,194 @@
 <html lang="lv">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Viktoriņa – Latvijas Pop Mūziķi</title>
-    <link rel="stylesheet" href="css/style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #f0ede8 0%, #e8e0d5 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: #2c2b28;
+        }
+
+        header {
+            background: #2c5a3e;
+            color: #fef7e0;
+            padding: 1.8rem 1rem 1.2rem;
+            text-align: center;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            font-size: 2.6rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+            text-shadow: 2px 2px 0 #1e3a2a;
+        }
+        header p {
+            margin-top: 0.3rem;
+            font-style: italic;
+            font-weight: 500;
+        }
+        nav {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: #f9e7c2;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            background: rgba(0,0,0,0.2);
+            transition: 0.2s;
+            cursor: pointer;
+        }
+        nav a:hover {
+            background: #f5b642;
+            color: #2c2b28;
+        }
+
+        main {
+            flex: 1;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1.2rem;
+            width: 100%;
+        }
+
+        .viktorina-bloks {
+            background: #fffef7;
+            border-radius: 2rem;
+            padding: 2rem 1.8rem;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.2);
+            border: 1px solid #ffe2b5;
+        }
+
+        .v-poga {
+            background: #e67e22;
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+            margin-top: 1rem;
+            display: inline-block;
+        }
+        .v-poga:hover {
+            background: #bf6016;
+            transform: scale(1.02);
+        }
+
+        #atbildes-saraksts {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin: 1.5rem 0;
+        }
+        .atbildes-poga {
+            background: #f5efe3;
+            border: 2px solid #e2cfb3;
+            border-radius: 60px;
+            padding: 0.8rem 1.2rem;
+            font-size: 1rem;
+            text-align: left;
+            cursor: pointer;
+            transition: 0.1s;
+            font-weight: 500;
+            color: #2f2e2b;
+        }
+        .atbildes-poga:hover:not(.disabled-option) {
+            background: #ffecce;
+            border-color: #e67e22;
+        }
+        .disabled-option {
+            cursor: default;
+            opacity: 0.7;
+        }
+        .pareiza-atbilde {
+            background: #b5d8b0 !important;
+            border-color: #2a7a3b !important;
+            color: #1d421d;
+        }
+        .nepareiza-atbilde {
+            background: #f4cfce !important;
+            border-color: #b13e3e !important;
+            text-decoration: line-through;
+        }
+
+        #progress-bar-wrapper {
+            background-color: #e3d6c4;
+            border-radius: 30px;
+            height: 14px;
+            width: 100%;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        #progress-bar {
+            background: linear-gradient(90deg, #e67e22, #f7b05e);
+            width: 0%;
+            height: 100%;
+            border-radius: 30px;
+            transition: width 0.25s ease;
+        }
+        #jautajuma-teksts {
+            font-size: 1.5rem;
+            margin: 0.7rem 0;
+            line-height: 1.3;
+        }
+        #atbildes-atgriezeniskums {
+            font-weight: 500;
+            margin-top: 0.8rem;
+            padding: 0.5rem;
+            border-radius: 40px;
+            background: #f7efdf;
+            text-align: center;
+        }
+        footer {
+            text-align: center;
+            padding: 1.8rem;
+            background: #2c3e2b;
+            color: #ecd9b4;
+            margin-top: 2rem;
+            font-size: 0.85rem;
+        }
+        @media (max-width: 550px) {
+            .viktorina-bloks { padding: 1.5rem; }
+            #jautajuma-teksts { font-size: 1.2rem; }
+        }
+    </style>
 </head>
 <body>
 
 <header>
-    <h1>Viktoriņa</h1>
+    <h1>🎵 Viktoriņa</h1>
     <p>Pārbaudi savas zināšanas par Latvijas pop mūziku!</p>
     <nav>
-        <a href="index.html">Sākums</a>
-        <a href="galerija.html">Galerija</a>
-        <a href="aptauja.html">Aptauja</a>
-        <a href="viktorina.html">Viktoriņa</a>
+        <a id="fake-home">🏠 Sākums</a>
+        <a id="fake-galerija">🖼️ Galerija</a>
+        <a id="fake-aptauja">📊 Aptauja</a>
+        <a id="fake-viktorina">❓ Viktoriņa</a>
     </nav>
 </header>
 
 <main>
-    <div id="viktorina-sākums" class="viktorina-bloks">
-        <h2>Gatavs sākt?</h2>
+    <div id="viktorina-sakums" class="viktorina-bloks">
+        <h2>🎤 Gatavs sākt?</h2>
         <p>10 jautājumi par Latvijas populārākajiem mūziķiem. Par katru pareizu atbildi saņem 1 punktu!</p>
         <button id="sakuma-poga" class="v-poga">Sākt viktoriņu ▶</button>
     </div>
@@ -38,7 +206,7 @@
     </div>
 
     <div id="viktorina-beigas" class="viktorina-bloks" style="display:none">
-        <h2>Viktoriņa pabeigta!</h2>
+        <h2>🏆 Viktoriņa pabeigta!</h2>
         <p id="rezultata-teksts"></p>
         <p id="rezultata-komentars"></p>
         <button id="veltreiz-poga" class="v-poga">Mēģināt vēlreiz ↺</button>
@@ -46,9 +214,220 @@
 </main>
 
 <footer>
-    <p>© 2026 Latvijas mūzika</p>
+    <p>© 2026 Latvijas mūzika — lepni ar mūsu izpildītājiem</p>
 </footer>
 
-<script src="js/script.js"></script>
+<script>
+    // ---------- PAREIZI JAUTĀJUMI par Latvijas pop mūziku ----------
+    const jautajumi = [
+        {
+            teksts: "Kura latviešu dziedātāja 2015. gadā Eirovīzijā pārstāvēja Latviju ar dziesmu 'Love Injected'?",
+            atbildes: ["Aminata Savadogo", "Justs Sirmais", "Laura Rizzotto", "Samanta Tīna"],
+            pareiza: "Aminata Savadogo"
+        },
+        {
+            teksts: "Kā sauc grupas 'Prāta Vētra' solistu?",
+            atbildes: ["Renārs Kaupers", "Jānis Jubalts", "Mārtiņš Freimanis", "Kaspars Roga"],
+            pareiza: "Renārs Kaupers"
+        },
+        {
+            teksts: "Kurš latviešu dziedātājs 2024. gadā uzvarēja Supernovā un pārstāvēja Latviju Eirovīzijā?",
+            atbildes: ["Dons (Artūrs Šingirejs)", "Sudden Lights", "Patrisha", "Vēstulēs"],
+            pareiza: "Dons (Artūrs Šingirejs)"
+        },
+        {
+            teksts: "Kura Latvijas grupa izpilda dziesmu 'Zem dzintara debess' un ir pazīstama ar folkroka skanējumu?",
+            atbildes: ["Skyforger", "Prāta Vētra", "Instrumenti", "Tautumeitas"],
+            pareiza: "Skyforger"
+        },
+        {
+            teksts: "Kuru latviešu dziedātāju sauc par 'Latvijas popmūzikas leģendu', viņa ir dziedājusi 'Par pēdējo lāsīti'?",
+            atbildes: ["Laima Vaikule", "Olga Rajecka", "Mirdza Zīvere", "Nora Bumbiere"],
+            pareiza: "Laima Vaikule"
+        },
+        {
+            teksts: "Kura grupa izpilda hitu 'Baiļu vārti' un ir viena no populārākajām Latvijas rokgrupām?",
+            atbildes: ["Astro'n'out", "Carnival Youth", "Tranzīts", "Labvēlīgais Tips"],
+            pareiza: "Astro'n'out"
+        },
+        {
+            teksts: "Kurš mūziķis ir zināms ar dziesmām 'Pāri okeānam' un 'Manā sirdī'? (bijušais 'Prāta Vētras' bundzinieks?)",
+            atbildes: ["Mārtiņš Freimanis", "Gustavs Butulis", "Ivo Fomins", "Aivis Madris"],
+            pareiza: "Mārtiņš Freimanis"
+        },
+        {
+            teksts: "Kura dziedātāja ir slavena ar dziesmu 'I Wanna' un 2002. gadā uzvarēja Eirovīzijā?",
+            atbildes: ["Marija Naumova", "Aija Kukule", "Lauris Reiniks", "Intars Busulis"],
+            pareiza: "Marija Naumova"
+        },
+        {
+            teksts: "Kura Latvijas grupa 2023. gadā pārstāvēja Latviju Eirovīzijā ar dziesmu 'Aijā'?",
+            atbildes: ["Sudden Lights", "Citi Zēni", "Markus Riva", "Katrīna Dimanta"],
+            pareiza: "Sudden Lights"
+        },
+        {
+            teksts: "Kurš latviešu dziedātājs ir pazīstams ar dziesmu '-1-2-3' un ir bijis populārs kopš 90. gadu beigām?",
+            atbildes: ["Normunds Rutulis", "Uģis Joksts", "Andris Ērglis", "Raimonds Pauls"],
+            pareiza: "Normunds Rutulis"
+        }
+    ];
+
+    // Spēles stāvoklis
+    let currentIndex = 0;
+    let punkti = 0;
+    let atbildeIzveles = false;
+    let pareizaAtbildeTeksts = "";
+
+    // DOM elementi
+    const sakumaBloks = document.getElementById('viktorina-sakums');
+    const jautajumaBloks = document.getElementById('viktorina-jautajums');
+    const beiguBloks = document.getElementById('viktorina-beigas');
+    const sakumaPoga = document.getElementById('sakuma-poga');
+    const talakPoga = document.getElementById('talak-poga');
+    const velreizPoga = document.getElementById('veltreiz-poga');
+    const jautTekstaElem = document.getElementById('jautajuma-teksts');
+    const atbSarakstsElem = document.getElementById('atbildes-saraksts');
+    const atgriezeniskaisElem = document.getElementById('atbildes-atgriezeniskums');
+    const progresStienis = document.getElementById('progress-bar');
+    const jautNumursElem = document.getElementById('jautajuma-numurs');
+    const rezTeksts = document.getElementById('rezultata-teksts');
+    const rezKomentars = document.getElementById('rezultata-komentars');
+
+    function atjaunotProgresu() {
+        const progressPct = ((currentIndex) / jautajumi.length) * 100;
+        progresStienis.style.width = `${progressPct}%`;
+        jautNumursElem.innerText = `${currentIndex + 1} / ${jautajumi.length}`;
+    }
+
+    function attelotJautajumu() {
+        if (currentIndex >= jautajumi.length) {
+            beigtViktorinu();
+            return;
+        }
+        
+        const jaut = jautajumi[currentIndex];
+        jautTekstaElem.innerText = jaut.teksts;
+        pareizaAtbildeTeksts = jaut.pareiza;
+        
+        atbSarakstsElem.innerHTML = '';
+        jaut.atbildes.forEach(atbilde => {
+            const poga = document.createElement('button');
+            poga.innerText = atbilde;
+            poga.classList.add('atbildes-poga');
+            poga.setAttribute('data-atbilde', atbilde);
+            poga.addEventListener('click', () => apstradatAtbildi(atbilde, poga));
+            atbSarakstsElem.appendChild(poga);
+        });
+        
+        atgriezeniskaisElem.innerText = '';
+        atgriezeniskaisElem.style.background = "#f7efdf";
+        atbildeIzveles = false;
+        talakPoga.style.display = 'none';
+        atjaunotProgresu();
+    }
+    
+    function apstradatAtbildi(izveletaAtbilde, pogaElem) {
+        if (atbildeIzveles) return;
+        atbildeIzveles = true;
+        
+        const pareizais = pareizaAtbildeTeksts;
+        const irPareizi = (izveletaAtbilde === pareizais);
+        
+        if (irPareizi) {
+            punkti++;
+            atgriezeniskaisElem.innerText = "✅ Pareizi! +1 punkts.";
+            atgriezeniskaisElem.style.background = "#d9f0da";
+        } else {
+            atgriezeniskaisElem.innerText = `❌ Nepareizi. Pareizā atbilde: "${pareizais}".`;
+            atgriezeniskaisElem.style.background = "#ffe0dd";
+        }
+        
+        const visiPog = document.querySelectorAll('#atbildes-saraksts .atbildes-poga');
+        visiPog.forEach(poga => {
+            poga.classList.add('disabled-option');
+            const atbValue = poga.getAttribute('data-atbilde');
+            if (atbValue === pareizais) {
+                poga.classList.add('pareiza-atbilde');
+            } else if (atbValue === izveletaAtbilde && atbValue !== pareizais) {
+                poga.classList.add('nepareiza-atbilde');
+            }
+        });
+        
+        talakPoga.style.display = 'inline-block';
+    }
+    
+    function nopeitUzNakamo() {
+        if (!atbildeIzveles) return;
+        currentIndex++;
+        if (currentIndex < jautajumi.length) {
+            attelotJautajumu();
+        } else {
+            beigtViktorinu();
+        }
+    }
+    
+    function beigtViktorinu() {
+        jautajumaBloks.style.display = 'none';
+        beiguBloks.style.display = 'block';
+        
+        const maxPunkti = jautajumi.length;
+        rezTeksts.innerText = `Tavs rezultāts: ${punkti} / ${maxPunkti}`;
+        
+        let komentars = "";
+        if (punkti === maxPunkti) komentars = "🎉 Izcili! Tu esi īsts Latvijas mūzikas eksperts! 🎉";
+        else if (punkti >= 7) komentars = "👍 Labi darīts! Tev ir labas zināšanas par Latvijas pop mūziku.";
+        else if (punkti >= 5) komentars = "🎶 Ne slikti! Klausies mūziku vairāk un būsi vēl zinošāks.";
+        else komentars = "🎵 Nekas, mācies vairāk! Iesaku paklausīties Latvijas populāros hitus un mēģināt vēlreiz!";
+        
+        rezKomentars.innerText = komentars;
+    }
+    
+    function restartetViktorinu() {
+        currentIndex = 0;
+        punkti = 0;
+        atbildeIzveles = false;
+        beiguBloks.style.display = 'none';
+        sakumaBloks.style.display = 'none';
+        jautajumaBloks.style.display = 'block';
+        attelotJautajumu();
+    }
+    
+    function uzsaktViktorinuNoSakuma() {
+        sakumaBloks.style.display = 'none';
+        beiguBloks.style.display = 'none';
+        jautajumaBloks.style.display = 'block';
+        currentIndex = 0;
+        punkti = 0;
+        atbildeIzveles = false;
+        attelotJautajumu();
+    }
+    
+    function resetToHome() {
+        sakumaBloks.style.display = 'block';
+        jautajumaBloks.style.display = 'none';
+        beiguBloks.style.display = 'none';
+        currentIndex = 0;
+        punkti = 0;
+        atbildeIzveles = false;
+    }
+    
+    // Navigācijas saites (demonstrācijai)
+    document.getElementById('fake-home')?.addEventListener('click', (e) => { e.preventDefault(); resetToHome(); });
+    document.getElementById('fake-galerija')?.addEventListener('click', (e) => { e.preventDefault(); alert("🖼️ Galerija — šeit būtu Latvijas mūziķu attēli! 📸"); resetToHome(); });
+    document.getElementById('fake-aptauja')?.addEventListener('click', (e) => { e.preventDefault(); alert("📊 Aptauja — drīzumā varēsi balsot par saviem mīļākajiem māksliniekiem!"); resetToHome(); });
+    document.getElementById('fake-viktorina')?.addEventListener('click', (e) => { e.preventDefault(); resetToHome(); });
+    
+    // Pievienot pogu notikumus
+    sakumaPoga.addEventListener('click', uzsaktViktorinuNoSakuma);
+    talakPoga.addEventListener('click', nopeitUzNakamo);
+    velreizPoga.addEventListener('click', restartetViktorinu);
+    
+    // Sākuma stāvoklis
+    window.addEventListener('load', () => {
+        sakumaBloks.style.display = 'block';
+        jautajumaBloks.style.display = 'none';
+        beiguBloks.style.display = 'none';
+    });
+</script>
 </body>
 </html>
