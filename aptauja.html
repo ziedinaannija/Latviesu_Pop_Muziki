@@ -1,43 +1,100 @@
-<html>
+<!DOCTYPE html>
 <html lang="lv">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aptauja</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<header>
+    <nav>
+        <a href="index.html">Sākums</a>
+        <a href="galerija.html">Galerija</a>
+        <a href="aptauja.html">Aptauja</a>
+    </nav>
+</header>
+<main>
+    <h1>Aptauja</h1>
+    <form id="forma">
 
-<nav>
-    <a href="index.html">Sākums</a>
-    <a href="galerija.html">Galerija</a>
-    <a href="aptauja.html">Aptauja</a>
-</nav>
+        <label for="vards">Tavs vārds</label>
+        <input type="text" id="vards" placeholder="Tavs vārds" required>
 
-<h2>Aptauja</h2>
+        <label for="izvele">Kurš mākslinieks tev patīk visvairāk?</label>
+        <select id="izvele" required>
+            <option value="">-- Izvēlies --</option>
+            <option value="prata-vetra">Prāta Vētra</option>
+            <option value="dons">Dons</option>
+            <option value="musiqq">Musiqq</option>
+            <option value="triana-park">Triana Park</option>
+            <option value="aminata">Aminata</option>
+            <option value="busulis">Intars Busulis</option>
+            <option value="citi-zeni">Citi Zēni</option>
+        </select>
 
-<form id="forma">
-    <input type="text" id="vards" placeholder="Tavs vārds">
+        <!-- Jautājums ar radio pogām #1 -->
+        <fieldset>
+            <legend>Cik bieži klausies Latvijas mūziku?</legend>
+            <div>
+                <input type="radio" id="katru-dienu" name="biezums" value="katru-dienu" required>
+                <label for="katru-dienu">Katru dienu</label>
+            </div>
+            <div>
+                <input type="radio" id="dazreiz" name="biezums" value="dazreiz">
+                <label for="dazreiz">Dažreiz</label>
+            </div>
+            <div>
+                <input type="radio" id="reti" name="biezums" value="reti">
+                <label for="reti">Reti</label>
+            </div>
+        </fieldset>
 
-    <p>Kurš mākslinieks tev patīk visvairāk?</p>
-    <select id="izvele">
-    <option>Prāta Vētra</option>
-    <option>Dons</option>
-    <option>Musiqq</option>
-    <option>Triana Park</option>
-    <option>Aminata</option>
-    <option>Prāta Vētra</option>
-    <option>Intars Busulis</option>
-    <option>Citi zēni</option>
-    </select>
+        <!-- Jautājums ar radio pogām #2 -->
+        <fieldset>
+            <legend>Kā tu parasti klausies mūziku?</legend>
+            <div>
+                <input type="radio" id="spotify" name="platforma" value="spotify" required>
+                <label for="spotify">Spotify</label>
+            </div>
+            <div>
+                <input type="radio" id="youtube" name="platforma" value="youtube">
+                <label for="youtube">YouTube</label>
+            </div>
+            <div>
+                <input type="radio" id="radio" name="platforma" value="radio">
+                <label for="radio">Radio</label>
+            </div>
+            <div>
+                <input type="radio" id="cits" name="platforma" value="cits">
+                <label for="cits">Cits</label>
+            </div>
+        </fieldset>
 
-    <textarea id="komentars" placeholder="Komentārs"></textarea>
+        <!-- Jautājums ar radio pogām #3 -->
+        <fieldset>
+            <legend>Vai esi bijis kāda Latvijas mākslinieka koncertā?</legend>
+            <div>
+                <input type="radio" id="ja" name="koncerts" value="ja" required>
+                <label for="ja">Jā</label>
+            </div>
+            <div>
+                <input type="radio" id="ne" name="koncerts" value="ne">
+                <label for="ne">Nē</label>
+            </div>
+            <div>
+                <input type="radio" id="plans" name="koncerts" value="plans">
+                <label for="plans">Vēl nē, bet plānoju</label>
+            </div>
+        </fieldset>
 
-    <button type="submit">Iesniegt</button>
-</form>
+        <label for="komentars">Komentārs</label>
+        <textarea id="komentars" placeholder="Komentārs"></textarea>
 
-<p id="rezultats"></p>
-
+        <button type="submit">Iesniegt</button>
+    </form>
+    <p id="rezultats"></p>
+</main>
 <script src="js/script.js"></script>
-
 </body>
 </html>
